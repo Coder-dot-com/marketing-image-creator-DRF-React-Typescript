@@ -1,0 +1,13 @@
+#
+.env
+.env.db
+!.env-sample
+
+*/__pycache__/*
+
+*/mpcs/*
+
+**/__pycache__
+*.pyc
+
+
