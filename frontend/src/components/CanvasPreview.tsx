@@ -101,7 +101,7 @@ const CanvasPreview: React.FC<CanvasPreviewProps> = ({
       <h4>Preview</h4>
       <canvas
         ref={canvasRef}
-        style={{ border: "1px solid #ccc", maxWidth: "100%" }}
+        style={{ border: "1px solid #ccc", maxWidth: "100%", maxHeight: "40rem", }}
       />
     </div>
   );
