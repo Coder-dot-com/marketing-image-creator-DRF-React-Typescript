@@ -1,14 +1,22 @@
 import React from 'react';
 
-const BorderSelector: React.FC = () => {
+interface BorderSelectorProps {
+  onBorderChange: (value: string) => void;
+}
+
+const BorderSelector: React.FC<BorderSelectorProps> = ({ onBorderChange }) => {
   return (
     <div className="mb-3">
       <label className="form-label">Border Selector</label>
-      <select className="form-select">
-        <option value="border">Border 1</option>
-        <option value="border">Border 1</option>
-
-
+      <select
+        className="form-select"
+        onChange={(e) => onBorderChange(e.target.value)}
+      >
+        <option value="#000000">Black Border</option>
+        <option value="#FF0000">Red Border</option>
+        <option value="#00AAFF">Blue Border</option>
+        <option value="#00AA00">Green Border</option>
+        <option value="none">No Border</option>
       </select>
     </div>
   );

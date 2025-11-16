@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 
-const TextAdder: React.FC = () => {
+interface TextAdderProps {
+  onTextChange: (text: string) => void;
+  onFontChange: (font: string) => void;
+  onFontSizeChange: (size: number) => void;
+  onColorChange: (color: string) => void;
+}
+
+const TextAdder: React.FC<TextAdderProps> = ({ onTextChange, onFontChange, onFontSizeChange, onColorChange }) => {
   const [text, setText] = useState('');
   const [font, setFont] = useState('Arial');
   const [fontSize, setFontSize] = useState(16);
@@ -31,7 +38,10 @@ const TextAdder: React.FC = () => {
         type="text"
         className="form-control mb-2"
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={(e) => {
+          setText(e.target.value);
+          onTextChange(e.target.value);
+        }}
         placeholder="Enter text"
       />
       <div className="mb-2">
@@ -39,7 +49,10 @@ const TextAdder: React.FC = () => {
         <select
           className="form-select"
           value={font}
-          onChange={(e) => setFont(e.target.value)}
+          onChange={(e) => {
+            setFont(e.target.value);
+            onFontChange(e.target.value);
+          }}
         >
           {fonts.map((f) => (
             <option key={f} value={f}>
@@ -54,7 +67,10 @@ const TextAdder: React.FC = () => {
           type="number"
           className="form-control"
           value={fontSize}
-          onChange={(e) => setFontSize(Number(e.target.value))}
+          onChange={(e) => {
+            setFontSize(Number(e.target.value));
+            onFontSizeChange(Number(e.target.value));
+          }}
           min={10}
           max={100}
         />
@@ -73,21 +89,15 @@ const TextAdder: React.FC = () => {
                 border: c === color ? '2px solid #000' : '1px solid #ccc',
                 cursor: 'pointer',
               }}
-              onClick={() => setColor(c)}
+              onClick={() => {
+                setColor(c);
+                onColorChange(c);
+              }}
             />
           ))}
         </div>
       </div>
-      <div
-        className="mt-3 p-2 border"
-        style={{
-          fontFamily: font,
-          fontSize: `${fontSize}px`,
-          color: color,
-        }}
-      >
-        {text || 'Preview text'}
-      </div>
+
     </div>
   );
 };
