@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'imagecreator',
+    'users',
 
     'rest_framework',
     'corsheaders',
