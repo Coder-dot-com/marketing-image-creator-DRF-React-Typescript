@@ -1,3 +1,7 @@
+-login and register frontend
+-if user logged in save button if not banner that says login.register to save images
+
+
 -add saving ability (with name) and ability to view, click and load (all users, add auth )
     (backend)
 
