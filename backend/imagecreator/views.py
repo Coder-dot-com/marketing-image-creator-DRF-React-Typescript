@@ -1,11 +1,14 @@
-from rest_framework import viewsets
-from .models import Overlay, UserCreatedImage
-from .serializers import OverlaySerializer, UserCreatedImageSerializer
+from rest_framework import generics, permissions
+from .models import UserCreatedImage
+from .serializers import UserCreatedImageSerializer
 
-class OverlayViewSet(viewsets.ModelViewSet):
-    queryset = Overlay.objects.all()
-    serializer_class = OverlaySerializer
-
-class UserCreatedImageViewSet(viewsets.ModelViewSet):
-    queryset = UserCreatedImage.objects.all()
+class UserImageListCreate(generics.ListCreateAPIView):
     serializer_class = UserCreatedImageSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        # Only return images for the logged-in user
+        return UserCreatedImage.objects.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
