@@ -1,12 +1,10 @@
-Frontend
--imrpove layout
-
--add saving ability (with name) and ability to view, click and load (all users, add auth later)
+-add saving ability (with name) and ability to view, click and load (all users, add auth )
     (backend)
+
+
 -download button
 -share buttons for social
 
 
 Later when time:
 -also demonstrate testing
--authentication and segmentation of images by user
