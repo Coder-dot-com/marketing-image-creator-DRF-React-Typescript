@@ -1,17 +1,37 @@
-const Header = () => {
-  return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary px-3">
-      <a className="navbar-brand" href="/">Marketing Image Creator</a>
+import React from "react";
 
-      <div className="ms-auto">
-        <a className="nav-link text-white d-inline-block me-3" href="/login">
-          Login
-        </a>
-        <a className="nav-link text-white d-inline-block" href="/register">
-          Register
-        </a>
-      </div>
-    </nav>
+const Header = () => {
+  const isLoggedIn = !!localStorage.getItem("access");
+
+  const logout = () => {
+    localStorage.removeItem("access");
+    localStorage.removeItem("refresh");
+    window.location.href = "/login";
+  };
+
+  return (
+    <>
+
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary px-3">
+        <a className="navbar-brand" href="/">Image Creator</a>
+
+        <div className="ms-auto d-flex align-items-center">
+          {!isLoggedIn ? (
+            <>
+              <a href="/login" className="nav-link text-white me-3">Login</a>
+              <a href="/register" className="nav-link text-white">Register</a>
+            </>
+          ) : (
+            <>
+              <a href="/saved" className="nav-link text-white me-3">Saved Images</a>
+              <button className="btn btn-light btn-sm" onClick={logout}>
+                Logout
+              </button>
+            </>
+          )}
+        </div>
+      </nav>
+    </>
   );
 };
 

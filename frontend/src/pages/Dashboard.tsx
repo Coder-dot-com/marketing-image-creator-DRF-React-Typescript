@@ -11,9 +11,19 @@ const Dashboard: React.FC = () => {
   const [fontSize, setFontSize] = useState(16);
   const [color, setColor] = useState('#000000');
   const [border, setBorder] = useState('border');
+  const isLoggedIn = !!localStorage.getItem("access");
 
   return (
+
+    
     <div className="container mt-5">
+
+      {!isLoggedIn && (
+        <div className="w-100 text-center py-2 bg-warning fw-semibold">
+          Log in to save images
+        </div>
+      )}
+
       <h1 className="mb-4">Marketing Image Creator</h1>
 
       <div className="row">
