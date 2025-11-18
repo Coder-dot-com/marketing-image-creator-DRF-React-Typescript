@@ -9,7 +9,7 @@ const Dashboard: React.FC = () => {
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [text, setText] = useState('');
   const [font, setFont] = useState('Arial');
-  const [fontSize, setFontSize] = useState(16);
+  const [fontSize, setFontSize] = useState(50);
   const [color, setColor] = useState('#000000');
   const [border, setBorder] = useState('#000000');
 
