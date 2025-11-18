@@ -14,14 +14,11 @@ const Register: React.FC = () => {
     }
 
     try {
-      const res = await axios.post("/api/auth/register/", {
-        username,
-        password,
-      });
+      const res = await axios.post("/api/auth/register/", { username, password });
       alert(res.data.message || "Registered successfully");
-      window.location.href = "/login"; // redirect to login page
+      window.location.href = "/login";
     } catch (err: any) {
-      if (err.response && err.response.data) {
+      if (err.response?.data) {
         setError(err.response.data.error || "Registration failed");
       } else {
         setError("Registration failed");
@@ -30,43 +27,52 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "50px auto" }}>
-      <h2>Register</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <div className="container d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
+      <div className="card shadow p-4" style={{ width: "380px" }}>
+        <h3 className="text-center mb-3">Register</h3>
+        {error && <div className="alert alert-danger">{error}</div>}
 
-      <div className="mb-2">
-        <input
-          type="text"
-          placeholder="Username"
-          className="form-control"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+
+        <div className="mb-3">
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+
+        <div className="mb-3">
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+        </div>
+
+        <button className="btn btn-primary w-100 mb-3" onClick={register}>
+          Register
+        </button>
+
+        <p className="text-center mb-0">
+          Already have an account?{" "}
+          <a href="/login" className="text-primary">
+            Log in
+          </a>
+        </p>
       </div>
-
-      <div className="mb-2">
-        <input
-          type="password"
-          placeholder="Password"
-          className="form-control"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-
-      <div className="mb-2">
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          className="form-control"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-      </div>
-
-      <button className="btn btn-primary w-100" onClick={register}>
-        Register
-      </button>
     </div>
   );
 };

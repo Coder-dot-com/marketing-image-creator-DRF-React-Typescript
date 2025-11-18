@@ -1,4 +1,6 @@
 -login and register frontend
+
+
 -if user logged in save button if not banner that says login.register to save images
 
 
@@ -12,3 +14,4 @@
 
 Later when time:
 -also demonstrate testing
+-edit ability
