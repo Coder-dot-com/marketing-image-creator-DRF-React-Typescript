@@ -1,13 +1,27 @@
 
 
 -add saving ability (with name) and ability to view, click and load (all users, add auth )
-    (backend)
+    
+    -render saved images
 
+
+
+-improve font choices and default sizes/styling
 
 -download button
+
+-add demo footer with demo T&Cs, copyright
+
+-improve frontend overall (colorscheme. buttons, typography, style a tags etc...)
+
+
+
 -share buttons for social
+
+
 
 
 Later when time:
 -also demonstrate testing
 -edit ability
+-improved UI for saved images including easy download for now have to right click

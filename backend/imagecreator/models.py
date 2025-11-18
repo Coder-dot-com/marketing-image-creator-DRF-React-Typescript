@@ -7,7 +7,6 @@ User = get_user_model()
 
 class UserCreatedImage(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    background_color = models.CharField(max_length=7)  # hex color code
     uploaded_image = models.ImageField(upload_to='uploads/', blank=True, null=True)
     border_color = models.CharField(max_length=7)  # hex color code
     text = models.TextField(blank=True)
