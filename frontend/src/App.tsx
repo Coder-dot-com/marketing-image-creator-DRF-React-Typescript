@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Header from "./Header";
+import SavedImages from "./pages/SavedImages";
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,9 @@ const App: React.FC = () => {
           <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/saved" element={<SavedImages />} />
+
+
         </Routes>
       </Router>
     </>
