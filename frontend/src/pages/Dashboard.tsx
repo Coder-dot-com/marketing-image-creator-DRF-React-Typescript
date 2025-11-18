@@ -16,6 +16,23 @@ const Dashboard: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const isLoggedIn = !!localStorage.getItem("access");
 
+  const handleDownload = async () => {
+
+
+    if (!canvasRef.current) {
+      alert("No image to save");
+      return;
+    }
+
+    const base64Image = canvasRef.current.toDataURL("image/png");
+
+    const link = document.createElement('a');
+    link.download = 'marketing_image.png';
+    link.href = base64Image
+    link.click();
+
+  }
+
   const handleSave = async () => {
     if (!isLoggedIn) {
       alert("Please log in to save images");
@@ -99,9 +116,9 @@ const Dashboard: React.FC = () => {
             Save
           </button>
 
-          <button className="btn btn-primary m-2">Download</button>
-          <button className="btn btn-primary m-2">Share on Pinterest</button>
-          <button className="btn btn-primary m-2">Share on Twitter</button>
+          <button className="btn btn-primary m-2" onClick={handleDownload}>Download</button>
+          {/* <button className="btn btn-primary m-2">Share on Pinterest</button>
+          <button className="btn btn-primary m-2">Share on Twitter</button> */}
         </div>
       </div>
     </div>
