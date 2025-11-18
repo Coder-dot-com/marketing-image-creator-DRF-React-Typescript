@@ -57,12 +57,12 @@ const SavedImages: React.FC = () => {
       <div className="row">
         {images.map((img) => (
           <div className="col-6 col-md-4 col-lg-3 mb-3" key={img.id}>
-            <div className="card shadow-sm">
+            <div className="card shadow-sm py-2">
               <img
                 src={img.final_image}
                 alt="Saved"
-                className="card-img-top"
-                style={{ objectFit: "cover", height: "200px" }}
+                className="card-img-top m-1 p-1"
+                style={{ objectFit: "contain", height: "200px" }}
               />
               <div className="card-body text-center">
                 <a
