@@ -1,13 +1,6 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from .views import OverlayViewSet, UserCreatedImageViewSet
-
-router = DefaultRouter()
-router.register(r'overlays', OverlayViewSet)
-router.register(r'images', UserCreatedImageViewSet)
+from django.urls import path
+from .views import UserImageListCreate
 
 urlpatterns = [
-    path('create/', include(router.urls)),
+    path("images/", UserImageListCreate.as_view()),
 ]
-
-
