@@ -1,20 +1,5 @@
 
 
--add saving ability (with name) and ability to view, click and load (all users, add auth )
-    
-    -render saved images
-
-
-
--improve font choices and default sizes/styling
-
--download button
-
--add demo footer with demo T&Cs, copyright
-
--improve frontend overall (colorscheme. buttons, typography, style a tags etc...)
-
-
 
 
 Later when time:
@@ -22,3 +7,6 @@ Later when time:
 -edit ability
 -improved UI for saved images including easy download for now have to right click
 -share buttons for social
+-add demo footer with demo T&Cs, copyright
+-improve frontend overall (colorscheme. buttons, typography, style a tags etc...)
+-improve font choices and default sizes/styling

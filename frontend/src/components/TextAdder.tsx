@@ -10,7 +10,7 @@ interface TextAdderProps {
 const TextAdder: React.FC<TextAdderProps> = ({ onTextChange, onFontChange, onFontSizeChange, onColorChange }) => {
   const [text, setText] = useState('');
   const [font, setFont] = useState('Arial');
-  const [fontSize, setFontSize] = useState(16);
+  const [fontSize, setFontSize] = useState(50);
   const [color, setColor] = useState('#000000');
 
   const fonts = [
@@ -62,7 +62,7 @@ const TextAdder: React.FC<TextAdderProps> = ({ onTextChange, onFontChange, onFon
         </select>
       </div>
       <div className="mb-2">
-        <label className="form-label">Font Size (10–100)</label>
+        <label className="form-label">Font Size</label>
         <input
           type="number"
           className="form-control"
@@ -71,8 +71,8 @@ const TextAdder: React.FC<TextAdderProps> = ({ onTextChange, onFontChange, onFon
             setFontSize(Number(e.target.value));
             onFontSizeChange(Number(e.target.value));
           }}
-          min={10}
-          max={100}
+          min={1}
+
         />
       </div>
       <div className="mb-2">
