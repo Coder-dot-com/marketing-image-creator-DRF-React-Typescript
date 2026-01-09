@@ -4,14 +4,13 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('imagecreator', '0002_remove_usercreatedimage_overlay_img_and_more'),
+        ("imagecreator", "0002_remove_usercreatedimage_overlay_img_and_more"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='usercreatedimage',
-            name='background_color',
+            model_name="usercreatedimage",
+            name="background_color",
         ),
     ]

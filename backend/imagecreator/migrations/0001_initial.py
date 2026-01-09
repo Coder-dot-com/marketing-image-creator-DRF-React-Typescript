@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -15,26 +14,59 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Overlay',
+            name="Overlay",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('image', models.ImageField(upload_to='overlays/')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("image", models.ImageField(upload_to="overlays/")),
             ],
         ),
         migrations.CreateModel(
-            name='UserCreatedImage',
+            name="UserCreatedImage",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('background_color', models.CharField(max_length=7)),
-                ('uploaded_image', models.ImageField(blank=True, null=True, upload_to='uploads/')),
-                ('text', models.TextField(blank=True)),
-                ('font', models.CharField(max_length=100)),
-                ('font_size', models.IntegerField()),
-                ('text_color', models.CharField(max_length=7)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('overlay_img', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='imagecreator.overlay')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("background_color", models.CharField(max_length=7)),
+                (
+                    "uploaded_image",
+                    models.ImageField(blank=True, null=True, upload_to="uploads/"),
+                ),
+                ("text", models.TextField(blank=True)),
+                ("font", models.CharField(max_length=100)),
+                ("font_size", models.IntegerField()),
+                ("text_color", models.CharField(max_length=7)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                (
+                    "overlay_img",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="imagecreator.overlay",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]
